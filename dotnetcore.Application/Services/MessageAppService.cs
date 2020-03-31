@@ -11,10 +11,16 @@ namespace dotnetcore.Application.Services
     public class MessageAppService : IMessageAppService
     {
         private readonly IMediatorHandler Bus;
+
+        public MessageAppService (
+            IMediatorHandler bus)
+        {
+            Bus = bus;
+        }
+
         public async Task<string> GetMessage()
         {
             var response = await Bus.SendCommand(new NewMessageCommand());
-
             return response;
         }
     }

@@ -15,7 +15,7 @@ namespace dotnetcore.Core.Bus
             _mediator = mediator;
         }
 
-        public Task SendCommand<T>(T command) where T : Command
+        public Task<string> SendCommand<T>(T command) where T : Command
         {
             return _mediator.Send(command);
         }

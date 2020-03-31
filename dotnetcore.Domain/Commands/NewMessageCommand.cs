@@ -9,7 +9,7 @@ namespace dotnetcore.Domain.Commands
     {
         public override bool IsValid()
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

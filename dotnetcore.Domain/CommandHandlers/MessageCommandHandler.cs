@@ -13,7 +13,12 @@ namespace dotnetcore.Domain.CommandHandlers
     public class MessageCommandHandler : IRequestHandler<NewMessageCommand, string>
     {
         private readonly IMessageRepository _messageRepository;
-        private readonly IMediatorHandler Bus;
+
+        public MessageCommandHandler(
+            IMessageRepository messageRepository)
+        {
+            _messageRepository = messageRepository;
+        }
         public Task<string> Handle(NewMessageCommand request, CancellationToken cancellationToken)
         {
             if (!request.IsValid())
